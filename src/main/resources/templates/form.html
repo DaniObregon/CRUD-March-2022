@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario agregar usuario</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+            <h5 class="modal-title">Agregar Cliente</h5>
+            <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+            </button>
+        </div>
+        <form th:action="@{/guardar}" th:object="${usuario}" method="POST" class="was-validated">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label th:text="*{nombre}">Nombre</label><!--for="nombre"-->
+                    <input type="text" class="form-control" name="nombre" required="true">
+                </div>
+                <div class="form-group">
+                    <label th:text="*{telefono}">Telefono</label><!--for="telefono"-->
+                    <input type="tel" class="form-control" name="telefono" required="true">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Guardar" class="form-control px-3">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
